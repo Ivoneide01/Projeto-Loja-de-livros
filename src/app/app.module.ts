@@ -31,14 +31,14 @@ import { MatCardModule } from '@angular/material/card';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
+import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
 import { LoginComponent } from './components/login/login.component'
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptor/auth.interceptor';
-import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
+import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
 import { NgxMaskModule } from 'ngx-mask';
-import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
-import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
+import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
 import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
@@ -54,11 +54,9 @@ import { LivrosCreateComponent } from './components/livros/livros-create/livros-
     NavComponent,
     HomeComponent,
     HeaderComponent,
-    TecnicoListComponent,
+    FornecedorListComponent,
     LoginComponent,
-    TecnicoCreateComponent,
-    TecnicoUpdateComponent,
-    TecnicoDeleteComponent,
+    FornecedorUpdateComponent,
     ClienteCreateComponent,
     ClienteUpdateComponent,
     ClienteDeleteComponent,
@@ -66,6 +64,8 @@ import { LivrosCreateComponent } from './components/livros/livros-create/livros-
     PedidosComponent,
     LivrosComponent,
     LivrosCreateComponent,
+    FornecedorDeleteComponent,
+    FornecedorCreateComponent
    
   ],
   imports: [

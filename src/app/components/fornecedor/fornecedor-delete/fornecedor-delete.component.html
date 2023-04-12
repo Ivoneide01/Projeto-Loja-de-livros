@@ -12,7 +12,7 @@
         <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Nome</mat-label>
             <input
-            [(ngModel)]="tecnico.nome"
+            [(ngModel)]="fornecedor.nome"
             name="nome"
             [disabled]="true"
             matInput >
@@ -20,20 +20,20 @@
           </mat-form-field>
 
           <mat-form-field class="fullWidth" appearance="legacy">
-            <mat-label>CPF</mat-label>
+            <mat-label>cnpj</mat-label>
             <input 
-            [(ngModel)]="tecnico.cpf"
-            name="cpf"
+            [(ngModel)]="fornecedor.cnpj"
+            name="cnpj"
             [disabled]="true"
             matInput 
-            mask="000.000.000-00">
+            mask="00.000.000/0001">
             <mat-icon matSuffix>pin</mat-icon>
           </mat-form-field>
 
           <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>E-mail</mat-label>
             <input 
-            [(ngModel)]="tecnico.email"
+            [(ngModel)]="fornecedor.email"
             name="email"
             [disabled]="true"
             matInput >
@@ -43,7 +43,7 @@
           <mat-form-field class="fullWidth" appearance="legacy">
             <mat-label>Senha</mat-label>
             <input 
-            [(ngModel)]="tecnico.senha"
+            [(ngModel)]="fornecedor.senha"
             name="senha"
             [disabled]="true"
             type="password" 
