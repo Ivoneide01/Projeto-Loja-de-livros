@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Tecnico } from 'src/app/models/tecnico';
-import { TecnicoService } from 'src/app/services/tecnico.service';
+import { Fornecedor } from 'src/app/models/fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 
 @Component({
-  selector: 'app-tecnico-create',
-  templateUrl: './tecnico-create.component.html',
-  styleUrls: ['./tecnico-create.component.css']
+  selector: 'app-fornecedor-create',
+  templateUrl: './fornecedor-create.component.html',
+  styleUrls: ['./fornecedor-create.component.css']
 })
-export class TecnicoCreateComponent implements OnInit {
+export class FornecedorCreateComponent implements OnInit {
 
-  tecnico: Tecnico = {
+  fornecedor: Fornecedor = {
     id: '',
     nome: '',
-    cpf: '',
+    cnpj: '',
     email: '',
     senha: '',
     perfis: [],
@@ -23,12 +23,12 @@ export class TecnicoCreateComponent implements OnInit {
   }
 
   nome: FormControl = new FormControl(null, Validators.minLength(3));
-  cpf: FormControl = new FormControl(null, Validators.required);
+  cnpj: FormControl = new FormControl(null, Validators.required);
   email: FormControl = new FormControl(null, Validators.email);
   senha: FormControl = new FormControl(null, Validators.minLength(3));
 
   constructor(
-    private service: TecnicoService,
+    private service: FornecedorService,
     private toast: ToastrService,
     private router: Router
   ) { }
@@ -37,21 +37,21 @@ export class TecnicoCreateComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.nome.valid && this.cpf.valid && this.email.valid && this.senha.valid;
+    return this.nome.valid && this.cnpj.valid && this.email.valid && this.senha.valid;
   }
   
   addPerfil(perfil: any): void{
-    if (this.tecnico.perfis.includes(perfil)){
-      this.tecnico.perfis.splice(this.tecnico.perfis.indexOf(perfil), 1)
+    if (this.fornecedor.perfis.includes(perfil)){
+      this.fornecedor.perfis.splice(this.fornecedor.perfis.indexOf(perfil), 1)
     } else {
-      this.tecnico.perfis.push(perfil);
+      this.fornecedor.perfis.push(perfil);
     }
   }
 
   create(): void {
-    this.service.create(this.tecnico).subscribe(() => {
+    this.service.create(this.fornecedor).subscribe(() => {
       this.toast.success('Técnico cadastrado com sucesso', 'Cadastro');
-      this.router.navigate(['tecnicos'])
+      this.router.navigate(['fornecedores'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

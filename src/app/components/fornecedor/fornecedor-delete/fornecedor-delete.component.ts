@@ -1,49 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Tecnico } from 'src/app/models/tecnico';
-import { TecnicoService } from 'src/app/services/tecnico.service';
+import { Fornecedor } from 'src/app/models/fornecedor';
+import { FornecedorService } from 'src/app/services/fornecedor.service';
 
 @Component({
-  selector: 'app-tecnico-delete',
-  templateUrl: './tecnico-delete.component.html',
-  styleUrls: ['./tecnico-delete.component.css']
+  selector: 'app-fornecedor-delete',
+  templateUrl: './fornecedor-delete.component.html',
+  styleUrls: ['./fornecedor-delete.component.css']
 })
-export class TecnicoDeleteComponent implements OnInit {
+export class FornecedorDeleteComponent implements OnInit {
 
-  tecnico: Tecnico = {
+  tecnico: Fornecedor = {
     id: '',
     nome: '',
-    cpf: '',
+    cnpj: '',
     email: '',
     senha: '',
     perfis: [],
     dataCriacao: ''
   }
+  fornecedor: any;
 
   constructor(
-    private service: TecnicoService,
+    private service: FornecedorService,
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.tecnico.id = this.route.snapshot.paramMap.get('id');
+    this.fornecedor.id = this.route.snapshot.paramMap.get('id');
     this.findById();
   }
 
   findById(): void {
-    this.service.findById(this.tecnico.id).subscribe(resposta => {
+    this.service.findById(this.fornecedor.id).subscribe(resposta => {
       resposta.perfis = [];
-      this.tecnico = resposta;
+      this.fornecedor = resposta;
     })
   }
   
   delete(): void {
-    this.service.delete(this.tecnico.id).subscribe(() => {
+    this.service.delete(this.fornecedor.id).subscribe(() => {
       this.toast.success('Técnico deletado com sucesso', 'Delete');
-      this.router.navigate(['tecnicos'])
+      this.router.navigate(['fornecedores'])
     }, ex => {
       console.log(ex);
       if(ex.error.errors){

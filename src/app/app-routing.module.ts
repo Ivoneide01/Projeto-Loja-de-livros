@@ -10,19 +10,19 @@ import { LivrosComponent } from './components/livros/livros.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
-import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
-import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
-import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
-import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
+import { FornecedorCreateComponent } from './components/fornecedor/fornecedor-create/fornecedor-create.component';
+import { FornecedorDeleteComponent } from './components/fornecedor/fornecedor-delete/fornecedor-delete.component';
+import { FornecedorListComponent } from './components/fornecedor/fornecedor-list/fornecedor-list.component';
+import { FornecedorUpdateComponent } from './components/fornecedor/fornecedor-update/fornecedor-update.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path:'', component: NavComponent, canActivate: [AuthGuard], children: [
     { path: 'home', component: HomeComponent },
-    { path: 'tecnicos', component: TecnicoListComponent },
-    { path: 'tecnicos/create', component: TecnicoCreateComponent },
-    { path: 'tecnicos/update/:id', component: TecnicoUpdateComponent },
-    { path: 'tecnicos/delete/:id', component: TecnicoDeleteComponent },
+    { path: 'fornecedores', component: FornecedorListComponent },
+    { path: 'fornecedores/create', component: FornecedorCreateComponent },
+    { path: 'fornecedores/update/:id', component: FornecedorUpdateComponent },
+    { path: 'fornecedores/delete/:id', component: FornecedorDeleteComponent },
     { path: 'clientes', component: ClienteListComponent },
     { path: 'clientes/create', component: ClienteCreateComponent },
     { path: 'clientes/update/:id', component: ClienteUpdateComponent },

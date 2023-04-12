@@ -1,7 +1,7 @@
-export interface Tecnico {
+export interface Fornecedor {
     id?: any;
     nome: string;
-    cpf: string;
+    cnpj: string;
     email: string;
     senha: string;
     perfis: string[];
